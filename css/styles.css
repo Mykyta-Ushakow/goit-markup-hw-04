@@ -91,6 +91,8 @@ ul {
   padding-top: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -175,11 +177,15 @@ ul {
 
 .footer-container {
   display: flex;
-  gap: 120px;
+  align-items: baseline;
 }
 
 .footer-studio-color {
   color: #f4f4fd;
+}
+
+.footer-copyright {
+  margin-right: 120px;
 }
 
 .footer-logo {
@@ -218,9 +224,9 @@ ul {
   height: 40px;
 }
 
-.footer-social-link span {
-  min-width: 100%;
-  min-height: 100%;
+.footer-social-link {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background-color: #4d5ae5;
   display: flex;
@@ -233,11 +239,11 @@ ul {
   fill: #f4f4fd;
 }
 
-.footer-social-link:hover span {
+.footer-social-link:hover {
   background-color: #31d0aa;
 }
 
-.footer-social-link:focus span {
+.footer-social-link:focus {
   background-color: #31d0aa;
 }
 
@@ -246,6 +252,8 @@ ul {
 .hero-section {
   background-color: #2e2f42;
   padding: 188px 0;
+  max-width: 1440px;
+
   background-image: linear-gradient(
       to bottom,
       rgba(46, 47, 66, 0.7),
@@ -253,8 +261,8 @@ ul {
     ),
     url(../images/hero-background.jpg);
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-position: center center;
+  background-size: cover;
 }
 
 .hero-head {
@@ -321,15 +329,14 @@ ul {
   min-height: 112px;
   background-color: #f4f4fd;
   border-radius: 4px;
-  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
 .about-us-icon {
-  position: absolute;
-  right: 3.35%;
-  bottom: 0%;
-  left: 100px;
-  top: 24px;
 }
 
 .about-us-head {
@@ -394,7 +401,7 @@ ul {
 }
 
 .team-wrap {
-  padding: 32px 16px;
+  padding: 32px 0;
 }
 
 .our-team-item {
@@ -410,7 +417,7 @@ ul {
   justify-content: center;
   align-items: center;
   gap: 24px;
-  margin: 8px 16px 32px 16px;
+  margin: 8px 16px auto 16px;
 }
 
 .our-team-contact {
@@ -418,7 +425,7 @@ ul {
   height: 40px;
 }
 
-.our-team-link span {
+.our-team-link {
   min-width: 100%;
   min-height: 100%;
   border-radius: 50%;
@@ -429,11 +436,11 @@ ul {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.our-team-link:hover span {
+.our-team-link:hover {
   background-color: #404bbf;
 }
 
-.our-team-link:focus span {
+.our-team-link:focus {
   background-color: #404bbf;
 }
 
@@ -486,37 +493,40 @@ ul {
 .customers-item {
   width: calc((100% - 5 * 24px) / 6);
   min-height: 88px;
-  border: 1px solid #8e8f99;
-  border-radius: 4px;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-link {
   color: #8e8f99;
   display: block;
-  min-width: 100%;
-  min-height: 100%;
-}
+  width: 100%;
+  height: 100%;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-.customers-link span {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .customers-icon {
   fill: currentColor;
-  position: absolute;
-  left: 32px;
-  top: 16px;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.customers-link:hover .customers-icon,
+.customers-link:hover .customers-icon {
+  fill: #404bbf;
+}
+
 .customers-link:focus .customers-icon {
   fill: #404bbf;
 }
 
-.customers-item:hover,
-.customers-item:focus {
+.customers-link:hover {
+  border: 1px solid #404bbf;
+}
+
+.customers-link:focus {
   border: 1px solid #404bbf;
 }
 
@@ -546,9 +556,10 @@ ul {
   padding: 12px 24px;
   border: 1px solid #e7e9fc;
   border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-filter-button:hover {
@@ -584,18 +595,22 @@ ul {
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-project-link:hover,
+.portfolio-project-link:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
 .portfolio-project-link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
-.portfolio-project-link:hover .overlay-text-wrap {
-  transform: translate(0);
+.portfolio-project-link:hover .overlay-text {
+  transform: translateY(0%);
 }
 
-.portfolio-project-link:focus .overlay-text-wrap {
-  transform: translate(0);
+.portfolio-project-link:focus .overlay-text {
+  transform: translateY(0%);
 }
 
 .overlay-block {
@@ -604,6 +619,14 @@ ul {
 }
 
 .overlay-text-wrap {
+}
+
+.overlay-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -614,16 +637,8 @@ ul {
   min-height: 300px;
   min-width: 360px;
   padding: 40px 32px;
-  padding-bottom: auto;
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.overlay-text {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
 }
 
 .portfolio-item-wrap {
@@ -660,9 +675,9 @@ ul {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
   width: 100%;
   height: 4px;
+  bottom: -1px;
   background-color: #404bbf;
   border-radius: 2px;
 }
@@ -701,6 +716,7 @@ ul {
 }
 
 .modal-button {
+  padding: 0;
   width: 24px;
   height: 24px;
   position: absolute;
@@ -714,6 +730,31 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-button:hover {
+  background-color: #404bbf;
+  border: none;
+}
+
+.modal-button:focus {
+  background-color: #404bbf;
+  border: none;
+}
+
+.modal-button:hover .modal-close-icon {
+  fill: #ffffff;
+}
+
+.modal-button:focus .modal-close-icon {
+  fill: #ffffff;
+}
+
+.modal-close-icon {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-hidden {
